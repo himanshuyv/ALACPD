@@ -28,6 +28,8 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
             time2.append(datetime.strptime(t, "%Y-%m-%d %H:%M:%S"))
         elif name == "bee_waggle_6":
             time2.append(t)
+        elif name == "std":
+            time2.append(datetime.strptime(t, "%Y-%m-%d %H:%M:%S"))
     
     current_t =  np.argwhere(loss[:,0] == 0)[0]
     
@@ -43,6 +45,9 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
     elif name == "bee_waggle_6":
         labels = ['x position', 'y position', 'sine of the head angle', 'cosine of the head angle']
         xl = "Move index"
+    elif name == "std":
+        labels = ['pace']
+        xl = "Time"
         
     ts = TimeSeries.from_json("./datasets/"+ name+"/"+name +".json")
     data = ts.y    
@@ -65,6 +70,9 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
         #    axes[j].set_xticks([])
 
     if name == "run_log":
+        x_labels = ts.index.strftime("%Y-%m-%d %H:%M:%S")
+        axes[-1].set_xticklabels(x_labels)
+    elif name == "std":
         x_labels = ts.index.strftime("%Y-%m-%d %H:%M:%S")
         axes[-1].set_xticklabels(x_labels)
     
@@ -96,6 +104,10 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
     if name == "run_log":
         x_labels = ts.index.strftime("%Y-%m-%d %H:%M:%S")
         axs[-1].set_xticklabels(x_labels)
+    elif name == "std":
+        x_labels = ts.index.strftime("%Y-%m-%d %H:%M:%S")
+        axs[-1].set_xticklabels(x_labels)
+
     plt.xlabel(xl)
     plt.savefig(save_dir+"_loss_"+name+".pdf", bbox_inches='tight')
     plt.show()   

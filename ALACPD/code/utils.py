@@ -90,8 +90,9 @@ def load_empty_model_assests(ensemble_space):
 """                                  Read Data                              """    
 def load_data(args):
     dataset_name =  args.dataset_name
-    if dataset_name in ['occupancy', 'apple', 'bee_waggle_6', 'run_log']:
+    if dataset_name in ['occupancy', 'apple', 'bee_waggle_6', 'run_log', 'std']:
         #data = load_data(dataset_name)
+        print("./datasets/"+ dataset_name+"/"+dataset_name +".json")
         ts = TimeSeries.from_json("./datasets/"+ dataset_name+"/"+dataset_name +".json")
         data = ts.y
         scaler = preprocessing.StandardScaler().fit(data)
@@ -102,7 +103,7 @@ def load_data(args):
             annotations = json.load(json_file)    
             annotations = annotations[dataset_name]
     return data, annotations, time
-    
+
     
 
 

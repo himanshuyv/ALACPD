@@ -199,7 +199,7 @@ print("#########                            Algorithm is Finished               
 print("#########################################################################################")
         
 print("predicted = ", cpd_indices)
-if args.dataset_name in ['occupancy', 'apple', 'bee_waggle_6', 'run_log']:
+if args.dataset_name in ['occupancy', 'apple', 'bee_waggle_6', 'run_log', 'std']:
     file1 = open(params["file_name"] + "results.txt","w") 
     print("\nreal = ", annotations)
     file1.write("\npredicted = " + str(cpd_indices)) 

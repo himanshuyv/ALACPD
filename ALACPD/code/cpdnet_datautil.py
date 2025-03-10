@@ -24,6 +24,8 @@ class DataUtil(object):
 
             print("Start reading data")
             self.rawdata   = np.loadtxt(fin, delimiter=',')
+            if self.rawdata.ndim == 1:
+                self.rawdata = self.rawdata.reshape(-1, 1)
             print("End reading data")
 
             self.w         = window

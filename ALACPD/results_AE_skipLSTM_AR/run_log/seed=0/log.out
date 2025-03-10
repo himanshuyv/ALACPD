@@ -1,0 +1,56 @@
+#########################################################################################
+#########                   Generate Models and Offline Training                 ########
+#########################################################################################
+Python version: %s 3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) 
+[GCC 7.5.0]
+Tensorflow version: %s 1.14.0
+Keras version: %s ... Using tensorflow embedded keras 2.2.4-tf
+Data: %s data/run_log.txt
+Window: %d 6
+Horizon: %d 4
+CNN Filters: %d 100
+CNN Kernel: %d 0
+GRU Units: %d 20
+Skip GRU Units: %d 20
+Skip: %d 3
+Dropout: %f 0.2
+Normalise: %d 0
+Highway: %d 6
+Batch size: %d 1
+Epochs: %d 10
+Learning rate: %s 0.001
+Initialiser: %s glorot_uniform
+Optimiser: %s SGD
+Loss function to use: %s mean_squared_error
+Fraction of data to be used for training: %.2f 0.1
+Fraction of data to be used for validation: %.2f 0
+Train model: %s True
+Validate model: %s True
+Test model: %s False
+Save model location: %s model
+Save Results: %s True
+Save History: %s False
+Load Model from: %s None
+TensorBoard: %s 
+Plot: %s True
+Predict: %s all
+Series to plot: %s 0
+Save plot: %s None
+Create log: %s True
+Debug level: %d 50
+Logfile: %s ./results_AE_skipLSTM_AR/run_log/seed=0/log/cpdnet
+Start reading data
+End reading data
+Normalise: %d 0
+Splitting data into training set (%.2f), validation set (%.2f) and testing set (%.2f) 0.1 0 0.9
+Training shape: X:%s Y:%s (22, 7, 6, 2) (22, 6, 2)
+Validation shape: X:%s Y:%s (22, 7, 6, 2) (22, 6, 2)
+Testing shape: X:%s Y:%s (339, 7, 6, 2) (339, 6, 2)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^ Creating model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^ Compiling the model
+Model compiled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Training model on normal data... 
+Train on 22 samples, validate on 22 samples
