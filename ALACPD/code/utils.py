@@ -47,25 +47,28 @@ def init_parameters():
     parser.add_argument("--skip_sizes", nargs="+", default=[3, 5, 7], type=int)
 
     # Train options
-    parser.add_argument("--epochs", default=10, help="epochs", type=int)    
+    parser.add_argument("--e_init", default=10, help="e_init", type=int)    
     parser.add_argument("--train_percent", type=float, default=0.1, help="train_percent")
+    parser.add_argument("--e_train", default=5, help="e_train", type=int)
+    parser.add_argument("--e_reinit", default = 100, help="e_reinit", type=int)
+    parser.add_argument("--n_cpd", default = 5, help="n_cpd", type=int)
     args = parser.parse_args()
     
     params = {'dataset_name': args.dataset_name,
                 "skip_sizes":args.skip_sizes,
                 'train_percent':args.train_percent, 
-                "training_epochs":args.epochs, 
+                "training_epochs":args.e_init, 
                 "horizon" : args.horizon, 
                 "highway":args.highway,
-                "model_names": [args.model_name , args.model_name , args.model_name ],
+                "model_names": [args.model_name , args.model_name , args.model_name],
                 "lr": 0.001, "GRUUnits":args.unit, "SkipGRUUnits":args.unit, 
                 "window": args.windows,
                 "num_change_threshold": 7,
-                "num_ano_cpd": 3,
+                "num_ano_cpd": args.n_cpd,
                 "threshold_high": 4, "threshold_low": 1.4,
-                "epochs_to_train_after_cpd":100,
-                "extra_samples_after_cpd":3,
-                "epochs_to_train_single_sample": 5}
+                "epochs_to_train_after_cpd":args.e_reinit,
+                "extra_samples_after_cpd": 3,
+                "epochs_to_train_single_sample": args.e_train}
    
     # Initialize model path
     params["file_name"] = "./results_"+params["model_names"][0]+\

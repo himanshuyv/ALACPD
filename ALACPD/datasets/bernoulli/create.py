@@ -7,14 +7,14 @@ file_path = "./../run_log/run_log.json"
 with open(file_path, "r") as f:
     data = json.load(f)
 
-n_obs = 300
+n_obs = 200
 n_dim = 1
 start_time = datetime.now()
 time_interval = timedelta(seconds=5)
 
 new_timestamps = [(start_time + i * time_interval).strftime("%Y-%m-%d %H:%M:%S") for i in range(n_obs)]
 
-change_points = [60, 110, 190, 250]
+change_points = [60, 110, 190]
 
 # Generate dummy data with Bernoulli distribution
 # Initial probability for success (i.e., value 1)

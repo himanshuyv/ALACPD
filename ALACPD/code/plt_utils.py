@@ -11,7 +11,7 @@ plt.switch_backend('agg')
 from matplotlib.pyplot import text
 import pandas as pd
 from load_dataset import TimeSeries
-    
+
 def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx, save_dir='./', name="dataset"):
     m = x.shape[1]
     n = x.shape[0]
@@ -85,7 +85,8 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
         axes[-1].set_xticklabels(x_labels)
     
     plt.xlabel(xl)
-    plt.savefig(save_dir+"_result_"+name+".pdf", bbox_inches='tight')
+    first_timestamp = ts.index[0].strftime("%Y%m%d%H%M%S")
+    plt.savefig(f"{save_dir}_result_{name}_{first_timestamp}.png", bbox_inches='tight')
     plt.show()   
     
     
@@ -120,6 +121,7 @@ def plot_results(x, time, loss, mean_loss, ano_indices, cpd_indices, current_idx
         axs[-1].set_xticklabels(x_labels)
 
     plt.xlabel(xl)
-    plt.savefig(save_dir+"_loss_"+name+".pdf", bbox_inches='tight')
+    first_timestamp = ts.index[0].strftime("%Y%m%d%H%M%S")
+    plt.savefig(save_dir+"_loss_"+name+first_timestamp+".png", bbox_inches='tight')
     plt.show()   
 
